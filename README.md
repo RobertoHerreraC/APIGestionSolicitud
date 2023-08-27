@@ -1,0 +1,1 @@
+# egemsa.GestionSolicitudesTransaparencia.api
