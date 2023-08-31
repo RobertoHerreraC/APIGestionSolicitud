@@ -95,6 +95,44 @@ namespace GestionSolicitudes.Utility
             #endregion Responsable
 
 
+            #region Solicitud
+
+            //CreateMap<Solicitud, SolicitudDTO>()
+            //.ForMember(dest => dest.FormaEntregaId, opt => opt.MapFrom(src => src.FormaEntregaId.ToString()))
+            //.ForMember(dest => dest.Activo, opt => opt.MapFrom(src => src.Estado == true ?  1 : 0))
+            //.ForMember(dest => dest.BitacoraSolicitud, opt => opt.MapFrom(src => src.Bitacoras));
+
+
+
+            CreateMap<Solicitud, SolicitudDTO>()
+            .ForMember(dest => dest.FormaEntregaId, opt => opt.MapFrom(src => src.FormaEntregaId.ToString()))
+            .ForMember(dest => dest.CostoTotal, opt => opt.MapFrom(src => src.CostoTotal.HasValue ? src.CostoTotal.ToString() : null))
+            .ForMember(dest => dest.FechaPresentacion, opt => opt.MapFrom(src => src.FechaPresentacion.HasValue ? src.FechaPresentacion.ToString() : null))
+            .ForMember(dest => dest.FechaVencimiento, opt => opt.MapFrom(src => src.FechaVencimiento.HasValue ? src.FechaVencimiento.ToString() : null))
+            .ForMember(dest => dest.FechaVencimientoProrroga, opt => opt.MapFrom(src => src.FechaVencimientoProrroga.HasValue ? src.FechaVencimientoProrroga.ToString() : null))
+            .ForMember(dest => dest.PlazoMaximo, opt => opt.MapFrom(src => src.PlazoMaximo.ToString()))
+            .ForMember(dest => dest.Prorroga, opt => opt.MapFrom(src => src.Prorroga.ToString()))
+            .ForMember(dest => dest.Activo, opt => opt.MapFrom(src => src.Estado == true ? 1 : 0));
+
+            CreateMap<SolicitudDTO, Solicitud>()
+            .ForMember(dest => dest.FormaEntregaId, opt => opt.MapFrom(src => int.Parse(src.FormaEntregaId)))
+            .ForMember(dest => dest.CostoTotal, opt => opt.MapFrom(src => !string.IsNullOrEmpty(src.CostoTotal) ? decimal.Parse(src.CostoTotal) : (decimal?)null))
+            .ForMember(dest => dest.FechaPresentacion, opt => opt.MapFrom(src => !string.IsNullOrEmpty(src.FechaPresentacion) ? DateTime.Parse(src.FechaPresentacion) : (DateTime?)null))
+            .ForMember(dest => dest.FechaVencimiento, opt => opt.MapFrom(src => !string.IsNullOrEmpty(src.FechaVencimiento) ? DateTime.Parse(src.FechaVencimiento) : (DateTime?)null))
+            .ForMember(dest => dest.FechaVencimientoProrroga, opt => opt.MapFrom(src => !string.IsNullOrEmpty(src.FechaVencimientoProrroga) ? DateTime.Parse(src.FechaVencimientoProrroga) : (DateTime?)null))
+            .ForMember(dest => dest.PlazoMaximo, opt => opt.MapFrom(src => short.Parse(src.PlazoMaximo)))
+            .ForMember(dest => dest.Prorroga, opt => opt.MapFrom(src => short.Parse(src.Prorroga)));
+
+
+
+            //CreateMap<SolicitudDTO, Solicitud>()
+            //.ForMember(dest => dest.FormaEntregaId, opt => opt.MapFrom(src => int.Parse(src.FormaEntregaId)))
+            //.ForMember(dest => dest.Estado, opt => opt.MapFrom(src => src.Activo == 1 ? true: false))
+            //.ForMember(dest => dest.Bitacoras, opt => opt.MapFrom(src => src.BitacoraSolicitud));
+
+            #endregion Solicitud
+
+
             /*CreateMap<Solicitud, SolicitudDTO>()
                 .ForMember(destino => destino.PersonaNatural,
                 opt => opt.MapFrom(origen => origen.PersonaNatural)

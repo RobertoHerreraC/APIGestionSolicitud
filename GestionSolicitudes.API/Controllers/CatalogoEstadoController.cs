@@ -16,7 +16,7 @@ namespace GestionSolicitudes.API.Controllers
         {
             _catalogoEstadoServiceServicio = catalogoEstadoServiceServicio;
         }
-
+          
         [HttpGet]
         [Route("Lista")]
         public async Task<IActionResult> Lista()

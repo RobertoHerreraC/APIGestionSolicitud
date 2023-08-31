@@ -8,9 +8,9 @@ namespace GestionSolicitudes.DTO
 {
     public class BitacoraDTO
     {
-        public int BitacoraId { get; set; }
-        public int SolicitudId { get; set; }
-        public int TareaId { get; set; }
+        public int? BitacoraId { get; set; }
+        public int? SolicitudId { get; set; }
+        public int? TareaId { get; set; }
         public string? DescripcionTarea { get; set; } = null!;
         public string? EstadoTarea { get; set; }
         public string? FechaHoraAccion { get; set; }

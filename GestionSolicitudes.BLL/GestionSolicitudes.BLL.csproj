@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GestionSolicitudes.DAL\GestionSolicitudes.DAL.csproj" />
     <ProjectReference Include="..\GestionSolicitudes.DTO\GestionSolicitudes.DTO.csproj" />
     <ProjectReference Include="..\GestionSolicitudes.Model\GestionSolicitudes.Model.csproj" />

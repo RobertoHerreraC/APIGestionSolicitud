@@ -27,6 +27,10 @@ namespace GestionSolicitudes.IOC
                 options.UseSqlServer(configuration.GetConnectionString("SQLString"));
             });
 
+            //Dependiencia de credencial de la API
+            configuration.GetSection("ApiSettings");
+            //service.AddScoped<APIService>();
+
             service.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             service.AddScoped<ISolicitudRepository, SolicitudRepository>();
@@ -41,6 +45,8 @@ namespace GestionSolicitudes.IOC
             service.AddScoped<IPersonaNaturalService, PersonaNaturalService>();
             service.AddScoped<ITareaService, TareaService>();
             service.AddScoped<IResponsableService, ResponsableService>();
+            service.AddScoped<IAPIService, APIService>();
+            service.AddScoped<ISolicitudService, SolicitudService>();
         }
     }
 }

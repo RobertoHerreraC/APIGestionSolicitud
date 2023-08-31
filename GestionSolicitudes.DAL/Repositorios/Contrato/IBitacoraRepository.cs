@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace GestionSolicitudes.DAL.Repositorios.Contrato
 {
-    public interface ISolicitudRepository : IGenericRepository<Solicitud>
+    public interface IBitacoraRepository
     {
-        Task<Solicitud> Alta(Solicitud solicitud);
+        Task<Bitacora> Inicio(Bitacora bitacora);
     }
 }

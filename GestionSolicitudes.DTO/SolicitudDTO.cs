@@ -9,14 +9,15 @@ namespace GestionSolicitudes.DTO
     public class SolicitudDTO
     {
         public int? SolicitudId { get; set; }
+        public int FraiId { get; set; }
         public PersonaJuridicaDTO? PersonaJuridica { get; set; }
         public PersonaNaturalDTO? PersonaNatural { get; set; }
         /*public string? TipoPersona { get; set; } = "";*/
-        public string? MotivoResolucion { get; set; }
-        public string? TipoInformacion { get; set; } = "";
         public string? InformacionSolicitada { get; set; } = "";
-        public string? FormaEntrega { get; set; } = "";
+        public string? FormaEntregaId { get; set; } = "";
         public string? Direccion { get; set; } = null!;
+        public string Correo { get; set; } = null!;
+        public string? Telefono { get; set; }
         public string? Departamento { get; set; } = null!;
         public string? Provincia { get; set; } = null!;
         public string? Distrito { get; set; } = null!;
